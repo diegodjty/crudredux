@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 // Redux actions
 import {createNewProductAction} from '../actions/productsAction'
 
-const NewProduct = () => {
+const NewProduct = ({history}) => {
 
 
     //state
@@ -35,6 +35,8 @@ const NewProduct = () => {
             name,
             price
         });
+
+        history.push('/');
     }
 
     return (
