@@ -5,7 +5,7 @@ import{
 
 } from '../types'
 
-// each reducer has his one state
+// each reducer has his owned state
 const initialState = {
     products: [],
     error: null,
@@ -14,7 +14,17 @@ const initialState = {
 
 export default function( state = initialState, action){
     switch (action.type) {
-        
+        case ADD_PRODUCT:
+            return{
+                ...state,
+                loading: action.payload
+            }
+        case ADD_PRODUCT_SUCCES:
+            return{
+                ...state,
+                loading: false,
+                products: [...state.products,action.payload]
+            }
         default:
             return state;
     }
