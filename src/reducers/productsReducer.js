@@ -4,7 +4,10 @@ import{
     ADD_PRODUCT_SUCCES,
     START_PRODUCTS_DOWNLOAD,
     PRODUCTS_DOWNLOAD_SUCCESS,
-    PRODUCTS_DOWNLOAD_ERROR
+    PRODUCTS_DOWNLOAD_ERROR,
+    GET_DELETE_PRODUCT,
+    PRODUCT_DELETED_SUCCESS,
+    PRODUCT_DELETED_ERROR
 
 } from '../types'
 
@@ -12,23 +15,27 @@ import{
 const initialState = {
     products: [],
     error: null,
-    loading: false
+    loading: false,
+    deleteProduct: null
 }
 
 export default function( state = initialState, action){
     switch (action.type) {
+
         case START_PRODUCTS_DOWNLOAD:
         case ADD_PRODUCT:
             return{
                 ...state,
                 loading: action.payload
             }
+
         case ADD_PRODUCT_SUCCES:
             return{
                 ...state,
                 loading: false,
                 products: [...state.products,action.payload]
             }
+
         case PRODUCTS_DOWNLOAD_ERROR:
         case ADD_PRODUCT_ERROR:
             return{
@@ -43,6 +50,12 @@ export default function( state = initialState, action){
                 error: null,
                 products: action.payload
             }
+
+        case GET_DELETE_PRODUCT:
+            return{
+                ...state,
+                deleteProduct: action.payload
+            }    
         default:
             return state;
     }
