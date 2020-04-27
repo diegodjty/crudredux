@@ -13,7 +13,6 @@ import Swal from 'sweetalert2'
 export function createNewProductAction(product) {
     return async (dispatch) => {
         dispatch( addProduct() );
-
         try {
             // insert on API
             await axiosClient.post('/productos', product)
@@ -62,10 +61,28 @@ const addProductError = (status) => ({
 export function getProductsAction () {
     return async (dispatch) =>{
         dispatch( downloadProducts)
+
+        try {
+            const response = await axiosClient.get('/productos')
+            dispatch( downloadProductsSucces (response.data) )
+        } catch (error) {
+            console.log(error)
+            dispatch( downloadProductsError() )
+        }
     }
 }
 
-const downloadProducts = () =>({
+const downloadProducts = () => ({
     type: START_PRODUCTS_DOWNLOAD,
+    payload: true
+})
+
+const downloadProductsSucces = (products) => ({
+    type: PRODUCTS_DOWNLOAD_SUCCESS,
+    payload: products
+})
+
+const downloadProductsError = () =>({
+    type: PRODUCTS_DOWNLOAD_ERROR,
     payload: true
 })

@@ -49,6 +49,11 @@
       "name": "React",
       "price": 120,
       "id": 10
+    },
+    {
+      "name": "tequila",
+      "price": 12,
+      "id": 11
     }
   ]
 }

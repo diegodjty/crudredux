@@ -1,7 +1,10 @@
 import{
     ADD_PRODUCT,
     ADD_PRODUCT_ERROR,
-    ADD_PRODUCT_SUCCES
+    ADD_PRODUCT_SUCCES,
+    START_PRODUCTS_DOWNLOAD,
+    PRODUCTS_DOWNLOAD_SUCCESS,
+    PRODUCTS_DOWNLOAD_ERROR
 
 } from '../types'
 
@@ -26,11 +29,19 @@ export default function( state = initialState, action){
                 loading: false,
                 products: [...state.products,action.payload]
             }
+        case PRODUCTS_DOWNLOAD_ERROR:
         case ADD_PRODUCT_ERROR:
             return{
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case PRODUCTS_DOWNLOAD_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                error: null,
+                products: action.payload
             }
         default:
             return state;
