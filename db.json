@@ -1,79 +1,9 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
-    },
-    {
-      "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
-    },
-    {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
-      "id": 3
-    },
-    {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "name": "asd",
-      "price": 12,
-      "id": 6
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 7
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 8
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 9
-    },
-    {
-      "name": "React",
-      "price": 120,
-      "id": 10
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 11
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 12
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 13
-    },
-    {
-      "name": "tequila",
-      "price": 12,
-      "id": 14
-    },
-    {
-      "name": "tequila",
-      "price": 4,
-      "id": 15
+      "name": "Fish",
+      "price": 100,
+      "id": 1
     }
   ]
 }

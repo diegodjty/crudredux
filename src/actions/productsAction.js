@@ -94,10 +94,24 @@ export function deleteProductAction(id) {
     return async (dispatch) =>{
         dispatch(getDeleteProduct(id));
         
+        try {
+            await axiosClient.delete(`/productos/${id}`)
+            dispatch( deleteProductSuccess() )
+        } catch (error) {
+            dispatch( deleteProductError() )
+        }
     }
 }
 
 const getDeleteProduct = (id) => ({
     type: GET_DELETE_PRODUCT,
     payload: id
+})
+
+const deleteProductSuccess = () =>({
+    type: PRODUCT_DELETED_SUCCESS
+})
+const deleteProductError = () => ({
+    type: PRODUCT_DELETED_ERROR,
+    payload: true
 })
