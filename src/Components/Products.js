@@ -1,10 +1,12 @@
 import React,{Fragment,useEffect} from 'react';
 import Product from './Product';
 
+
 // Redux
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getProductsAction } from '../actions/productsAction'
+
 
 
 
@@ -28,7 +30,7 @@ const Products = () => {
             { error ? <p className="font-weight-bold alert alert-danger text-center mt-4">
                 An error occured</p> : null }
             {loading ? <p className="text-center">Loading...</p> : null}
-            <table className="table table-stipted">
+            <table className="table table-striped">
                 <thead className="bg-primary table-dark">
                     <tr>
                         <th scope="col">Name</th>

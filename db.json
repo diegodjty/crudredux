@@ -1,9 +1,19 @@
 {
   "productos": [
     {
-      "name": "Fish",
-      "price": 100,
-      "id": 1
+      "name": "das",
+      "price": 12,
+      "id": 2
+    },
+    {
+      "name": "afs",
+      "price": 12,
+      "id": 3
+    },
+    {
+      "name": "afsa",
+      "price": 124,
+      "id": 4
     }
   ]
 }

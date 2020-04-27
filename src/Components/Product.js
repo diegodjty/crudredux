@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 
 // REDUX
@@ -15,9 +16,20 @@ const Product = ({product}) => {
     // Confirm if user wants to delete it
     const confirmDeleteProduct = id =>{
         // Ask user
-
-        // Pass to action
-        dispatch(deleteProductAction(id))
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                // Pass to action
+                dispatch(deleteProductAction(id))
+            }
+          })
     }
     return (
         <tr>
