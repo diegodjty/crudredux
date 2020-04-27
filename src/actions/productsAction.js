@@ -60,11 +60,10 @@ const addProductError = (status) => ({
 
 export function getProductsAction () {
     return async (dispatch) =>{
-        dispatch( downloadProducts)
-
+        dispatch( downloadProducts())
         try {
-            const response = await axiosClient.get('/productos')
-            dispatch( downloadProductsSucces (response.data) )
+                const response = await axiosClient.get('/productos')
+                dispatch( downloadProductsSucces (response.data) )           
         } catch (error) {
             console.log(error)
             dispatch( downloadProductsError() )
