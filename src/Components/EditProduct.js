@@ -1,6 +1,40 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import {editProductAction} from '../actions/productsAction'
 
 const EditProduct = () => {
+
+    //Product State
+    const [product, setProduct] = useState({
+        name: '',
+        price: ''
+    })
+
+    // product to edit
+    const edit = useSelector( state => state.products.editProduct)
+    
+    useEffect(() => {
+        setProduct(edit)
+    }, [edit])
+
+    
+    //read data from form
+    const onChangeForm = e =>{
+        setProduct({
+            ...product,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    const {name,price,id} = product
+    const submitEditProduct = e =>{
+        e.preventDefault()
+
+        editProductAction()
+    }
+
     return (
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -9,7 +43,9 @@ const EditProduct = () => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Edit Product
                         </h2>
-                        <form action="">
+                        <form
+                            onSubmit={submitEditProduct}
+                        >
                             <div className="form-group">
                                 <label htmlFor="">Name of product</label>
                                 <input 
@@ -17,6 +53,8 @@ const EditProduct = () => {
                                     className="form-control"
                                     placeholder="Name of product"
                                     name="name"
+                                    value={name}
+                                    onChange={onChangeForm}
                                 />
                             </div>
 
@@ -26,7 +64,9 @@ const EditProduct = () => {
                                     type="text"
                                     className="form-control"
                                     placeholder="Price of product"
-                                    name="precio"
+                                    name="price"
+                                    value={price}
+                                    onChange={onChangeForm}
                                 />
                             </div> 
 

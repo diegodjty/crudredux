@@ -14,6 +14,16 @@
       "name": "afsa",
       "price": 124,
       "id": 4
+    },
+    {
+      "name": "jugo",
+      "price": 1,
+      "id": 5
+    },
+    {
+      "name": "tequila",
+      "price": 1212,
+      "id": 6
     }
   ]
 }
