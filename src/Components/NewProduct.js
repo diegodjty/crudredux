@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 // Redux actions
 import {createNewProductAction} from '../actions/productsAction'
+import {showAlertAction} from '../actions/alertAction'
 
 const NewProduct = ({history}) => {
 
@@ -26,6 +27,12 @@ const NewProduct = ({history}) => {
 
         // Validate form
         if(name.trim() === '' || price <= 0){
+
+            const alert = {
+                msg: 'both fields are required',
+                classes: 'alert alert-danget text-center text-uppercase p3'
+            }
+            dispatch(showAlertAction(alert))
             return;
         }
         // Check for error
